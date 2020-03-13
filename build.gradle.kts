@@ -12,6 +12,17 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-js"))
     implementation(npm("is-sorted"))
+    testImplementation(kotlin("test-js"))
 }
 
-kotlin.target.browser { }
+kotlin {
+    target {
+        browser {
+            testTask {
+                useKarma {
+                    useChrome()
+                }
+            }
+        }
+    }
+}
